@@ -1,0 +1,70 @@
+#image-field {
+  
+  #preview {
+    display: flex;
+    margin-top: 30px;
+
+    .image-preview {
+      margin-left: 5px;
+      margin-top: 10px;
+
+      img {
+      height: 100px;
+      width: 100px;
+      }
+  
+      .buttons {
+        display: flex;
+        max-width: 100px;
+
+        .edit {
+          height: 20px;
+          width: 50px;
+          background-color: blue;
+          color: white;
+          line-height: 20px;
+          text-align: center;
+          border: solid 1px black;
+          border-radius: 5px;
+          cursor : pointer;
+        }
+    
+        .delete {
+          height: 20px;
+          width: 50px;
+          background-color:red;
+          color: white;
+          line-height: 20px;
+          text-align: center;
+          border: solid 1px black;
+          border-radius: 5px;
+          cursor : pointer;
+        }
+      }
+    }
+    #select-button {
+
+      #message {
+        width: 700px;
+        height: 150px;
+        background-color:#d0d0d0;
+        border: dashed 2px black;
+      }
+    }
+  }
+}
+.image-attatch {
+  
+  .post-image {
+    // file_fieldを非表示にする
+    // display: none;
+  }
+
+  .file-fields {
+
+    .checkbox {
+      // 削除用チェックボックスを非表示にする
+      // display: none;
+    }
+  }
+}

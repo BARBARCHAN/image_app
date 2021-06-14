@@ -1,0 +1,15 @@
+%h1 トップページ
+= link_to '新規投稿', '/posts/new'
+- @posts.each do |post|
+  .post
+    .post-date
+      = post.created_at
+    .post-content
+      = post.text
+    .post-images
+      - post.images.each do |image|
+        = image_tag image.src.url
+    .edit
+      = link_to '編集する', edit_post_path(post)
+    .destroy
+      = link_to '削除する', post_path(post), method: :delete

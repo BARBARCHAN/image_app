@@ -1,0 +1,30 @@
+= form_with model: @post, local: true do |f|
+  = f.text_field :text, placeholder: "一言入力してください"
+  %br
+  #image-field
+    #preview
+      - @post.images.each_with_index do |image, i|
+        -# persisted?が無いと、最初にbuildされた空のimageを読みに行く。
+        - if image.persisted?
+          .image-preview{data: {index: i}}
+            = image_tag image.src.url
+            .buttons
+              .edit
+                編集
+              .delete
+                削除
+      #select-button
+        #message
+          クリックして画像を選択してください
+  %br
+  .image-attatch
+    = f.fields_for :images do |image|
+      -# accept: "image/*"でimageに関するファイル以外（.pdfなど）を除外
+      %br
+      = image.file_field :src, accept: "image/*", class: "post-image", data: {index: image.index}
+      - if image.object.persisted?  
+        = image.check_box :_destroy, include_hidden: false, class: "checkbox"
+        -# ↓コメントアウトすると編集ページでの画像のパスが消えます
+        = image.object.src
+  %br
+  = f.submit '投稿する'
